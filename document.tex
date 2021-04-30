@@ -1,0 +1,72 @@
+\documentclass[12pt,a4paper,openany,oneside]{book}
+
+\usepackage{hyperref}
+\usepackage[italian]{babel}
+
+
+%\usepackage[latin1]{inputenc} %Windows
+\usepackage[utf8x]{inputenc} %Linux
+%\usepackage[applemac]{inputenc} %Mac
+
+\usepackage{graphicx}
+\usepackage[font=small,labelfont=bf,tableposition=top]{caption}
+
+\usepackage{listings}
+  \usepackage{courier}
+ \lstset{
+         language=C++,
+         basicstyle=\footnotesize\ttfamily,
+         numbers=left,           
+         numberstyle=\tiny,       
+         numbersep=5pt,        
+         tabsize=5,                 
+         extendedchars=true,         
+         breaklines=true,
+         keywordstyle=\textbf,           
+         stringstyle=\color{white}\ttfamily,
+         showspaces=false,       
+         showtabs=false,           
+         xleftmargin=17pt,
+         framexleftmargin=17pt,
+         framexrightmargin=5pt,
+         framexbottommargin=4pt,
+         showstringspaces=false          
+ }
+ 
+ \addto\captionsitalian{%
+ 	\renewcommand{\lstlistingname}{Codice}}
+
+\setcounter{tocdepth}{3} % fa apparire le subsubsection nell'indice
+\setcounter{secnumdepth}{3} % e le numera
+
+
+\usepackage{amsmath}
+
+
+\usepackage{framed}
+
+\begin{document}
+
+%Inserisce qui il frontespizio
+\input{parts/frontespizio} %<- richiama il file "parts/titlepage.tex" che contiene il frontespizio
+
+\bibliographystyle{unsrt}
+\title{Titolo Della Tesi}
+\author{Nome Autore}
+
+%Inserisce qui l'abstract
+\input{parts/abstract}
+
+%Genera l'indice
+\tableofcontents
+
+\input{parts/capitolo1} %<- richiama il file "parts/capitolo1.tex" che contiene il primo capitolo
+%Si consiglia di creare un nuovo file per ogni capitolo
+
+\input{parts/conclusione} %<- richiama il file "parts/conclusione.tex" che contiene la conclusione
+
+%Inserisce la bibliografia
+\newpage
+\addcontentsline{toc}{chapter}{Bibliografia}
+\bibliography{bibliography}
+\end{document}

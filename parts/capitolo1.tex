@@ -1,0 +1,59 @@
+\chapter{Introduzione}
+Qui va inserito il capitolo 1. Un esempio di figura è mostrato in \figurename{~\ref{fig:immagine}}. Questo è un esempio di citazione \cite{iplab}. Un esempio di listato è mostrato in Codice~\ref{lst:multicorrelation}. Un esempio di tabella è mostrato in \tablename~\ref{tab:gen}.
+
+\begin{figure}[t] %[t] per inserire la figura in cima alla pagina
+	\includegraphics[width=1\linewidth]{Images/iplab} %width=1\linewidth per scalare l'immagine alle dimensioni opportune. E' possibile ridurre le dimensioni dell'immagine inserendo un numero minore di 1
+	\caption{Questo è un esempio di didascalia.}
+	\label{fig:immagine} %per poter richiamare l'immagine nel testo
+\end{figure}
+
+
+\begin{lstlisting}[caption={Didascalia},label=lst:multicorrelation]
+double multicorrelation_ncc(template_obj,candidate_obj) {
+double similarity = ncc(template_obj,candidate_obj);
+if (similarity<t) {
+split template_obj into blocks: template_obj[9];
+split candidate_obj into blocks:  candidate_obj[9];
+similarity=0;
+for (i=0; i<9; i++)
+similarity+=ncc(template_obj[i],candidate_obj[i]);
+similarity/=9;
+}
+else
+return similarity;
+}
+\end{lstlisting}
+
+\begin{table}[ht]
+	\begin{center}
+		\caption{Tabella Generica}\label{tab:gen}
+		\begin{tabular}{lcccccc}
+			
+			& & & & & & \\ \hline
+			\multicolumn{1}{|c}{}  & \multicolumn{5}{|c|}{\bf Y} &
+			\multicolumn{1}{c|}{} \\
+			
+			\multicolumn{1}{|c}{\bf X} & \multicolumn{1}{|c}{$1$} & $\ldots$ & $j$ & $\ldots$ &
+			\multicolumn{1}{c|}{$k$} & \multicolumn{1}{c|}{$\Sigma_{j=1}^k{X_{ij}}$} \\ \hline
+			
+			\multicolumn{1}{|c}{$1$} & \multicolumn{1}{|c}{$X_{11}$} & $\ldots$ & $X_{1j}$ &
+			$\ldots$ & \multicolumn{1}{c|}{$X_{1k}$} &
+			\multicolumn{1}{c|}{$m$}\\
+			
+			\multicolumn{1}{|c}{$\vdots$} & \multicolumn{1}{|c}{$\vdots$} &  & $\vdots$ &  &
+			\multicolumn{1}{c|}{$\vdots$} &
+			\multicolumn{1}{c|}{$\vdots$}\\
+			
+			\multicolumn{1}{|c}{$i$} & \multicolumn{1}{|c}{$X_{i1}$} & $\dots$ & $X_{ij}$ &
+			$\ldots$ & \multicolumn{1}{c|}{$X_{ik}$} &
+			\multicolumn{1}{c|}{$m$} \\
+			
+			\multicolumn{1}{|c}{$\vdots$} & \multicolumn{1}{|c}{$\vdots$} &
+			& $\vdots$ &  & \multicolumn{1}{c|}{$\vdots$} & \multicolumn{1}{c|}{\vdots} \\
+			
+			\multicolumn{1}{|c}{$n$} & \multicolumn{1}{|c}{$X_{n1}$} & $\dots$ & $X_{nj}$ &
+			$\ldots$ & \multicolumn{1}{c|}{$X_{nk}$} & \multicolumn{1}{c|}{$m$}\\ \hline
+			
+		\end{tabular}
+	\end{center}
+\end{table}
